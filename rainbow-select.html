@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rainbow</title>
+</head>
+<style type="text/css">
+	body
+	{
+		background-color: #dbe8dc;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+	}
+	section
+	{
+		text-align: center;
+	}
+</style>
+<body>
+<section></section>
+
+
+</body>
+<script type="text/javascript">
+	var color = ["red", "orange", "yellow", "green", "blue", "indigo" , "violet"]
+	var section = document.createElement('section');
+	var body = document.querySelector('section');
+	var heading = document.createElement('h2');
+	var heading1 = document.createElement('h1');
+	heading1.textContent = 'The Rainbow Colors';
+
+	heading.innerHTML = 'Your Color Is  :<span> Please Select Some one </span>';
+	body.append(heading1);
+	body.append(section);
+	body.append(heading);
+	var span = document.querySelector('span');
+	span.style.padding  = '10px';
+	span.style.marginLeft  = '10px';
+	span.style.borderRadius  = '20px';
+	section.style.display  = 'flex';
+
+
+	for (var i in color){
+		var colorDiv = document.createElement('div');
+		section.append(colorDiv);
+		colorDiv.style.backgroundColor  = color[i];
+		colorDiv.style.height   = '100px';
+		colorDiv.style.width   = '100px';
+		colorDiv.addEventListener('click', function () {
+			var textColor = this.style.backgroundColor;
+			textUpper = textColor.toUpperCase();
+			span.textContent = textUpper;
+			span.style.backgroundColor  = textColor;
+		});
+
+	}
+</script>
+</html>

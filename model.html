@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Model</title>
+	<style type="text/css">
+		*
+		{
+			margin: 0;
+			padding: 0;
+			box-sizing: 0;
+		}
+		body
+		{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			background-color: #e8e8e8;
+			color: white;
+		}
+		#card
+		{
+			box-shadow:0px 0px 15px 6px #464646;
+			height: 200px;
+			width: 400px;
+			padding: 50px;
+			text-align: center;
+			font-size: 40px;
+			border-radius: 30px;
+			background-color: #919893;
+		}
+		#button
+		{
+			background-color: white;
+			border: 0;
+			padding: 10px;
+			margin-top: 60px;
+			cursor: pointer;
+			margin: 10px auto;
+		}
+		#model
+		{
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			color: black;
+			padding: 40px;
+			text-align: center;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			visibility: hidden;
+
+
+
+		}
+		#button1
+		{
+			background-color: white;
+			border: 0;
+			padding: 10px;
+			margin: 10px;
+		}
+		#full
+		{
+			text-align: center;
+			width: 400px;
+			height: 300px;
+			background-color: #a7a7a7;
+			border: 2px solid white;
+			padding: 30px;
+			border-radius: 30px;
+
+		}
+		p
+		{
+			text-align: justify;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="card">
+		<h2>This Model</h2>
+		<button id="button">Open Model</button>
+	</div>
+	<div id="model">
+		<div id="full">
+			<p>Represents shocking due to, nobody vivid, due to depicts because embodies tragic to prowess heroic moreover! Shocking portrayal presents time yet anyone portrays, life prophecy presents heroic whereas instill portrays represents case? Shocking untimely live some presents hence time her, point. Flaws story presents represents day anyone whereas such manifestation story because</p>
+		<button id="button1">Close</button>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	var openModel= document.querySelector('#button');
+	var modelShow = document.querySelector('#model');
+	var closeModel = document.querySelector('#button1');
+	openModel.addEventListener('click', function () {
+		modelShow.style.visibility = 'initial';
+
+	});
+	closeModel.addEventListener('click', function () {
+		modelShow.style.visibility  = 'hidden';
+	});
+	for (var i = Things.length - 1; i >= 0; i--) {
+		Things[i]
+	}
+</script>
+</html>

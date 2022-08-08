@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exam result</title>
+	<style type="text/css">
+		body
+		{
+			background-color: #dedede;
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: #3a3a3a;
+		}
+		#card
+		{
+			height: 400px;
+			width: 700px;
+			background-color: #e8e8e8;
+			border-radius: 40px;
+			box-shadow: 12px 15px 50px -3px rgba(0,0,0,0.96);
+			padding: 20px;
+		}
+		#top-view
+		{
+			display: flex;
+		}
+		#logo
+		{
+			font-family: 'Montserrat', sans-serif;
+			font-size: 50px;
+			height: 100%;
+			width: 50%;
+			text-align: center;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+		}
+		#form
+		{
+			width: 50%;
+		}
+		#form input
+		{
+			width: 70%;
+			padding: 10px;
+			margin: 10px;
+			background:none;
+			border: 0;
+			outline: 0;
+			font-size: 20px;
+			font-family: 'Questrial', sans-serif;
+			color: #3a3a3a;
+			border: 1px solid #3a3a3a;
+
+		}
+		::placeholder{
+			opacity: 0.3=7;
+		}
+		#buttom-view
+		{
+			font-size: 24px;
+			margin-top: 30px;
+			display: flex;
+		}
+		#buttom-view div
+		{
+			width: 180px;
+			border: 2px solid #3c3c3c;
+			padding: 5px;
+		}
+		#buttom-view div span
+		{
+		}
+	</style>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Itim&family=Montserrat:ital,wght@0,100;1,100&family=Questrial&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div id="card">
+		<div id="top-view">
+			<div id="logo">Input Your Info For Get Exam Result</div>
+			<div id="form">
+				<form>
+					<input type="number" name="" placeholder="Bangla">
+					<input type="number" name="" placeholder="English">
+					<input type="number" name="" placeholder="Math">
+					<input type="number" name="" placeholder="Science">
+					<input type="number" name="" placeholder="Social">
+				</form>
+			</div>
+		</div>
+		<div id="buttom-view">
+			<div  >Total : <span id="total"></span> </div>
+			<div> Letter Great : <span id="great"></span></div>
+			<div> Great Point : <span id="point"></span></div>
+			<div>Result : <span id="result"></span></div>
+
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	var input1 = document.querySelectorAll('input')[0];
+	var input2 = document.querySelectorAll('input')[1];
+	var input3 = document.querySelectorAll('input')[2];
+	var input4 = document.querySelectorAll('input')[3];
+	var input5 = document.querySelectorAll('input')[4];
+	var total = document.querySelector('#total');
+	var great = document.querySelector('#great');
+	var point = document.querySelector('#point');
+	var result = document.querySelector('#result');
+	input1.addEventListener('keyup', function () {
+		var totalMark = parseInt(input1.value) + parseInt(input2.value)+ parseInt(input3.value)+ parseInt(input4.value)+ parseInt(input5.value) ;
+		var avgPoint = totalMark/5;
+		console.log(avgPoint);
+		switch (true) {
+			case 80 < avgPoint:
+				getGreat = 'A+';
+				getPoint = '4.00'
+				break;
+			case 75 < avgPoint:
+				getGreat = 'A';
+				getPoint = '3.75';
+				break;
+			case 70 < avgPoint:
+				getGreat = 'A-';
+				getPoint = '3.50';
+				break;
+			case 65 < avgPoint:
+				getGreat = 'B+';
+				getPoint = '3.25';
+				break;
+			case 60 < avgPoint:
+				getGreat = 'B';
+				getPoint = '3.00';
+				break;
+			case 55 < avgPoint:
+				getGreat = 'B-';
+				getPoint = '2.75';
+				break;
+			case 50 < avgPoint:
+				getGreat = 'C+';
+				getPoint = '2.50';
+				break;
+			case 45 < avgPoint:
+				getGreat = 'C';
+				getPoint = '2.25';
+				break;
+			case 40 < avgPoint:
+				getGreat = 'D';
+				getPoint = '2.00'
+				break;
+			case 40 > avgPoint:
+				getGreat = 'F';
+				getPoint = '0.00'
+				break;
+		}
+		if (parseInt(input1.value) > 40 && parseInt(input2.value) >40 && parseInt(input3.value) > 40 && parseInt(input4.value) > 40 && parseInt(input5.value) > 40) {
+			result.textContent = 'Pass';
+		}
+		else
+		{
+			result.textContent = 'Fail';
+		}
+		point.textContent = getPoint;
+		great.textContent = getGreat;
+		total.textContent = totalMark;
+	});
+	input2.addEventListener('keyup', function () {
+		var totalMark = parseInt(input1.value) + parseInt(input2.value)+ parseInt(input3.value)+ parseInt(input4.value)+ parseInt(input5.value) ;
+		var avgPoint = totalMark/5;
+		console.log(avgPoint);
+		switch (true) {
+			case 80 < avgPoint:
+				getGreat = 'A+';
+				getPoint = '4.00'
+				break;
+			case 75 < avgPoint:
+				getGreat = 'A';
+				getPoint = '3.75';
+				break;
+			case 70 < avgPoint:
+				getGreat = 'A-';
+				getPoint = '3.50';
+				break;
+			case 65 < avgPoint:
+				getGreat = 'B+';
+				getPoint = '3.25';
+				break;
+			case 60 < avgPoint:
+				getGreat = 'B';
+				getPoint = '3.00';
+				break;
+			case 55 < avgPoint:
+				getGreat = 'B-';
+				getPoint = '2.75';
+				break;
+			case 50 < avgPoint:
+				getGreat = 'C+';
+				getPoint = '2.50';
+				break;
+			case 45 < avgPoint:
+				getGreat = 'C';
+				getPoint = '2.25';
+				break;
+			case 40 < avgPoint:
+				getGreat = 'D';
+				getPoint = '2.00'
+				break;
+			case 40 > avgPoint:
+				getGreat = 'F';
+				getPoint = '0.00'
+				break;
+		}
+		if (parseInt(input1.value) > 40 && parseInt(input2.value) >40 && parseInt(input3.value) > 40 && parseInt(input4.value) > 40 && parseInt(input5.value) > 40) {
+			result.textContent = 'Pass';
+		}
+		else
+		{
+			result.textContent = 'Fail';
+		}
+		point.textContent = getPoint;
+		great.textContent = getGreat;
+		total.textContent = totalMark;
+	});
+	input3.addEventListener('keyup', function () {
+		var totalMark = parseInt(input1.value) + parseInt(input2.value)+ parseInt(input3.value)+ parseInt(input4.value)+ parseInt(input5.value) ;
+		var avgPoint = totalMark/5;
+		console.log(avgPoint);
+		switch (true) {
+			case 80 < avgPoint:
+				getGreat = 'A+';
+				getPoint = '4.00'
+				break;
+			case 75 < avgPoint:
+				getGreat = 'A';
+				getPoint = '3.75';
+				break;
+			case 70 < avgPoint:
+				getGreat = 'A-';
+				getPoint = '3.50';
+				break;
+			case 65 < avgPoint:
+				getGreat = 'B+';
+				getPoint = '3.25';
+				break;
+			case 60 < avgPoint:
+				getGreat = 'B';
+				getPoint = '3.00';
+				break;
+			case 55 < avgPoint:
+				getGreat = 'B-';
+				getPoint = '2.75';
+				break;
+			case 50 < avgPoint:
+				getGreat = 'C+';
+				getPoint = '2.50';
+				break;
+			case 45 < avgPoint:
+				getGreat = 'C';
+				getPoint = '2.25';
+				break;
+			case 40 < avgPoint:
+				getGreat = 'D';
+				getPoint = '2.00'
+				break;
+			case 40 > avgPoint:
+				getGreat = 'F';
+				getPoint = '0.00'
+				break;
+		}
+		if (parseInt(input1.value) > 40 && parseInt(input2.value) >40 && parseInt(input3.value) > 40 && parseInt(input4.value) > 40 && parseInt(input5.value) > 40) {
+			result.textContent = 'Pass';
+		}
+		else
+		{
+			result.textContent = 'Fail';
+		}
+		point.textContent = getPoint;
+		great.textContent = getGreat;
+		total.textContent = totalMark;
+	});
+	input4.addEventListener('keyup', function () {
+		var totalMark = parseInt(input1.value) + parseInt(input2.value)+ parseInt(input3.value)+ parseInt(input4.value)+ parseInt(input5.value) ;
+		var avgPoint = totalMark/5;
+		console.log(avgPoint);
+		switch (true) {
+			case 80 < avgPoint:
+				getGreat = 'A+';
+				getPoint = '4.00'
+				break;
+			case 75 < avgPoint:
+				getGreat = 'A';
+				getPoint = '3.75';
+				break;
+			case 70 < avgPoint:
+				getGreat = 'A-';
+				getPoint = '3.50';
+				break;
+			case 65 < avgPoint:
+				getGreat = 'B+';
+				getPoint = '3.25';
+				break;
+			case 60 < avgPoint:
+				getGreat = 'B';
+				getPoint = '3.00';
+				break;
+			case 55 < avgPoint:
+				getGreat = 'B-';
+				getPoint = '2.75';
+				break;
+			case 50 < avgPoint:
+				getGreat = 'C+';
+				getPoint = '2.50';
+				break;
+			case 45 < avgPoint:
+				getGreat = 'C';
+				getPoint = '2.25';
+				break;
+			case 40 < avgPoint:
+				getGreat = 'D';
+				getPoint = '2.00'
+				break;
+			case 40 > avgPoint:
+				getGreat = 'F';
+				getPoint = '0.00'
+				break;
+		}
+		if (parseInt(input1.value) > 40 && parseInt(input2.value) >40 && parseInt(input3.value) > 40 && parseInt(input4.value) > 40 && parseInt(input5.value) > 40) {
+			result.textContent = 'Pass';
+		}
+		else
+		{
+			result.textContent = 'Fail';
+		}
+		point.textContent = getPoint;
+		great.textContent = getGreat;
+		total.textContent = totalMark;
+	});
+	input5.addEventListener('keyup', function () {
+		var totalMark = parseInt(input1.value) + parseInt(input2.value)+ parseInt(input3.value)+ parseInt(input4.value)+ parseInt(input5.value) ;
+		var avgPoint = totalMark/5;
+		console.log(avgPoint);
+		switch (true) {
+			case 80 < avgPoint:
+				getGreat = 'A+';
+				getPoint = '4.00'
+				break;
+			case 75 < avgPoint:
+				getGreat = 'A';
+				getPoint = '3.75';
+				break;
+			case 70 < avgPoint:
+				getGreat = 'A-';
+				getPoint = '3.50';
+				break;
+			case 65 < avgPoint:
+				getGreat = 'B+';
+				getPoint = '3.25';
+				break;
+			case 60 < avgPoint:
+				getGreat = 'B';
+				getPoint = '3.00';
+				break;
+			case 55 < avgPoint:
+				getGreat = 'B-';
+				getPoint = '2.75';
+				break;
+			case 50 < avgPoint:
+				getGreat = 'C+';
+				getPoint = '2.50';
+				break;
+			case 45 < avgPoint:
+				getGreat = 'C';
+				getPoint = '2.25';
+				break;
+			case 40 < avgPoint:
+				getGreat = 'D';
+				getPoint = '2.00'
+				break;
+			case 40 > avgPoint:
+				getGreat = 'F';
+				getPoint = '0.00'
+				break;
+		}
+		if (parseInt(input1.value) > 40 && parseInt(input2.value) >40 && parseInt(input3.value) > 40 && parseInt(input4.value) > 40 && parseInt(input5.value) > 40) {
+			result.textContent = 'Pass';
+		}
+		else
+		{
+			result.textContent = 'Fail';
+		}
+		point.textContent = getPoint;
+		great.textContent = getGreat;
+		total.textContent = totalMark;
+	});
+</script>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hello</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+<style type="text/css">
+	#carousel
+	{
+		display: flex;
+		justify-content: center;
+		position: relative;
+	}
+	#carousel-items
+	{
+		position: relative;
+		width: 700px;
+		height: 500px;
+
+	}
+	#carousel-items div
+	{
+		position: absolute;
+		top: 0;
+	}
+	#carousel-items div img
+	{
+		height: 500px;
+		width: 700px;
+	}
+	.index
+	{
+		z-index: 5;
+		animation: animate 2s ;
+	}
+	@keyframes animate 
+	{
+		0%
+		{
+			opacity: 0;
+		}
+		50%
+		{
+			opacity: 0.5;
+		}
+		100%
+		{
+			opacity: 1;
+		}
+
+	}
+	#arow
+	{
+		position: absolute;
+		bottom: -30px;
+	}
+	#arow i
+	{
+		margin: 0px 30px;
+		cursor: pointer;
+	}
+</style>
+<body>
+	<div id="carousel">
+		<div id="carousel-items">
+			<div id="carousel-1">
+				<img src="pic/slider1.jpg"  height="100%">
+			</div>
+			<div id="carousel-2">
+				<img src="pic/slider2.jpg" height="100%">
+			</div>
+			<div id="carousel-3">
+				<img src="pic/slider3.jpg" height="100%">
+			</div>
+		</div>
+		<div id="arow">
+			<i class="fas fa-chevron-left" id="left"><</i>
+			<i class="fas fa-chevron-right" id="right">></i>
+		</div>
+	</div>
+</body>
+
+<script type="text/javascript">
+
+
+
+	carouselItems = document.getElementById('carousel-items').children;
+	left = document.getElementById('left');
+	right = document.getElementById('right');
+	value = 0;
+	carouselItem =[];
+	for (var i = 0; i < carouselItems.length; i++) {
+		carouselItem.push(carouselItems[i].id);
+	}
+	left.addEventListener('click', function () {
+		if (value == 0) {
+			document.getElementById(carouselItem[0]).classList.add('index');
+			document.getElementById(carouselItem[1]).classList.remove('index');
+			document.getElementById(carouselItem[2]).classList.remove('index');
+			value = 2;
+			console.log(value);
+		}
+		else if (value == 1) {
+			document.getElementById(carouselItem[0]).classList.remove('index');
+			document.getElementById(carouselItem[1]).classList.add('index');
+			document.getElementById(carouselItem[2]).classList.remove('index');
+			value = 0;
+			console.log(value);
+		}
+		else{
+			document.getElementById(carouselItem[0]).classList.remove('index');
+			document.getElementById(carouselItem[1]).classList.remove('index');
+			document.getElementById(carouselItem[2]).classList.add('index');
+			value = 1;
+			console.log(value);
+		}
+	})
+	var pause;
+	right.addEventListener('click', function () {
+		setTimeout(function () {
+			clearInterval(interval);
+		}, 2000)
+		if (value == 0) {
+			document.getElementById(carouselItem[0]).classList.remove('index');
+			document.getElementById(carouselItem[1]).classList.remove('index');
+			document.getElementById(carouselItem[2]).classList.add('index');
+			value = 1;
+			console.log(value);
+		}
+		else if (value == 1) {
+			document.getElementById(carouselItem[0]).classList.remove('index');
+			document.getElementById(carouselItem[1]).classList.add('index');
+			document.getElementById(carouselItem[2]).classList.remove('index');
+			value = 2;
+			console.log(value);
+		}
+		else{
+			document.getElementById(carouselItem[0]).classList.add('index');
+			document.getElementById(carouselItem[1]).classList.remove('index');
+			document.getElementById(carouselItem[2]).classList.remove('index');
+			value = 0;
+			console.log(value);
+		}
+	})
+</script>
+
+
+</html>

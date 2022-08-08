@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Counter</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+	<style type="text/css">
+		*
+		{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		body
+		{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			background-color: #FFF5F0;
+
+		}
+		#card
+		{
+			height: 500px;
+			width: 400px;
+			background-color: white;
+			padding: 20px;
+			border-radius: 20px;
+			box-shadow: 0px 0px 15px 5px #9E9E9E;
+		}
+		h2
+		{
+			font-family: 'Poppins', sans-serif;
+			text-align: center;
+			font-size: 40px;
+			color: #989898;
+		}
+		h3
+		{
+			font-size: 80px;
+			text-align: center;
+			color: #48453e;
+			background-color: #98989855;
+		}
+		#button-group
+		{
+			display: flex;
+			justify-content: space-around;
+
+		}
+		button
+		{
+			background-color: #989898;
+			color: white;
+			border: 0;
+			width: 120px;
+			height: 40px;
+			display: block;
+			margin: 20px;
+			border-radius: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div id="card">
+		<h2>Counter</h2>
+		<h3>0</h3>
+		<div id="button-group">
+			<div id="top-button">
+				<button id="increase">Increase</button>
+				<button id="decrease">Decrease</button>
+			</div>
+			<div id="bottom-button">
+				<button id="auto">Auto</button>
+				<button id="reset">Reset</button>
+			</div>
+		</div>
+		<div style="display: flex; justify-content: center;">
+			<button id="gen">
+				Button Color
+			</button>
+			<button id="gen2">
+				Header Color
+			</button>
+		</div>
+			<div style="font-family: cursive; font-size: 17px;">
+				<div>
+					Button And Display Color Change : <input type="color" id="colorPicker">
+				</div>
+				<div id="gen2">
+					Header Color Change : <input type="color" id="colorPicker2">
+				</div>
+				
+			</div>
+	</div>
+</body>
+<script type="text/javascript">
+	var showValue = document.querySelector('h3');
+	var increase = document.querySelector('#increase');
+	var decrease = document.querySelector('#decrease');
+	var auto = document.querySelector('#auto');
+	var reset = document.querySelector('#reset');
+	var gen = document.querySelector('#gen');
+	var gen2 = document.querySelector('#gen2');
+	button = document.querySelectorAll('button');
+	var setinterval;
+	value =  Number(showValue.innerText);
+	increase.addEventListener('click', function () {
+		value++;
+		showValue.innerText = value;
+	});
+	decrease.addEventListener('click', function () {
+		if (value == 0) {
+			showValue.innerText = 0;
+		}
+		else {
+			value--;
+			showValue.innerText =value;
+		}
+	});
+	reset.addEventListener('click', function () {
+		showValue.innerText = 0;
+		clearInterval(setinterval);
+		value= 0;
+		auto.innerText ='Auto';
+	});
+	auto.addEventListener('click', function () {
+		if (auto.innerText == 'Auto') {
+			clearInterval(setinterval);
+		setinterval = setInterval(function () {
+			value++;
+			showValue.innerText = value;
+		}, 1000)
+		auto.innerText = 'Pause';
+		}
+		else
+		{
+			clearInterval(setinterval);
+			auto.innerText = 'Auto';
+		}
+	});
+	codeList = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];
+	color = '#';
+	gen.addEventListener('click', function () {
+		var color ='#';
+		for (var i = 0; i < 6 ;i++) {
+			random = Math.floor(Math.random() * 16)
+			color += codeList[random];
+			console.log(color);
+			for (var j = 0; j < button.length; j++) {
+				button[j].style.backgroundColor = color;
+			}
+		}
+		for (var i = 0; i < 2 ;i++) {
+			random = Math.floor(Math.random() * 16)
+			color += codeList[random];
+			console.log(color);
+			document.querySelector('h3').style.backgroundColor = color;
+		}
+	});
+	gen2.addEventListener('click', function () {
+		color2 = '#';
+		for (var k = 0; k < 6 ;k++) {
+			random = Math.floor(Math.random() * 16)
+			color2 += codeList[random];
+			document.querySelector('h2').style.color = color2;
+		}
+	})
+
+	colorPicker = document.querySelector('#colorPicker');
+	colorPicker.addEventListener('input', function () {
+		color = '';
+		for (var j = 0; j < button.length; j++) {
+				button[j].style.backgroundColor = colorPicker.value;
+
+			}
+
+		for (var i = 0; i < 2 ;i++) {
+			random = Math.floor(Math.random() * 16)
+			color += codeList[random];
+			console.log(colorPicker.value+color);
+			document.querySelector('h3').style.backgroundColor = colorPicker.value+'b5';
+		}
+	})
+
+	colorPicker2 = document.querySelector('#colorPicker2');
+	colorPicker2.addEventListener('input', function () {
+		
+			document.querySelector('h2').style.color = colorPicker2.value;
+	})
+</script>
+</html>

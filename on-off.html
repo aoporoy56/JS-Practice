@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>On Off</title>
+</head>
+<style type="text/css">
+	*
+	{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	body
+	{
+		background-color: #e2e2e2;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+	}
+	#div
+	{
+		height: 100px;
+		width: 250px;
+		font-size: 40px;
+		background-color: #ffff;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0px 30px;
+		font-weight: 800;
+		border-radius: 120px;
+		color: #424242;
+		position: relative;
+		cursor: pointer;
+		border: 3px solid #424242;
+	}
+	#button
+	{
+		width: 130px;
+		height: 80px;
+		background-color: #424242;
+		position: absolute;
+		border-radius: 50px;
+		box-shadow: unset;
+		cursor: pointer;
+		left: 9px;
+	}
+</style>
+
+<body>
+	
+	<div id="div">
+		<span>Off</span>
+		<span>On</span>
+		<div id="button" >
+			
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	var div = document.querySelector('#div');
+	var button = document.querySelector('#button');
+	buttonValue = button.style.left;
+	div.addEventListener('click', function () {
+		if (button.style.left != '103px') {
+			console.log(buttonValue);
+
+			button.style.left ='103px';
+			div.style.boxShadow = '0px 0px 50px 7px #424242';
+			console.log(buttonValue);
+			div.style.border = '0';
+		}
+		else{
+		button.style.left = '8px';
+			div.style.border = '3px solid #424242';
+			div.style.boxShadow = 'unset';
+
+		}
+	})
+</script>
+</html>

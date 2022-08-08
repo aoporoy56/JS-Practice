@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Menu Filter</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+	<style type="text/css">
+		*
+		{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: 'Roboto', sans-serif;
+		}
+		section
+		{
+			margin: 0 auto;
+			border: 1px solid black;
+			text-align: center;
+		}
+		#button-group button:hover
+		{
+			background-color: #7d7575;
+			transition: 0.6s;
+			color: white;
+		}
+		#button-group button
+		{
+			color: gray;
+			padding: 10px 20px;	
+			margin: 30px;
+			border: 0;
+			border-radius: 5px;
+			border: 1px solid #7d7575;
+		}
+		#menu-body
+		{
+			width: 100%;
+			text-align: left;
+			display: flex; 
+			flex-wrap: wrap;
+			justify-content: center;
+			grid-gap: 10px 20px;
+		}
+		#menu-card
+		{
+			border-radius: 20px;
+			display: flex;
+			height: 200px;
+			width: 500px;
+			margin: 10px;
+			background-color: #e8e8e8;
+			color: #7d7575;
+			box-shadow: 0px 0px 10px 1px black;
+		}
+		#img,img
+		{
+			border-radius: 20px 0px 0px  20px;
+		}
+		#text
+		{
+			height: 100%;
+		}
+		#text-edit
+		{
+			text-align: center;
+			margin-top: 50px;
+			width: 250px;
+			height: 200px;
+
+		}
+		#text-edit h4
+		{
+			font-size: 30px;
+		}
+		#text-edit h5
+		{
+			font-size: 17px;
+			margin: 10px;
+		}
+		#text-edit button:hover
+		{
+			background-color: #1b9c40;
+			transition: 0.4s;
+		}
+		#text-edit button
+
+		{
+			background-color: #2BF063;
+			border: 0;
+			padding: 5px 10px;
+			color: white;
+			border-radius: 5px;
+
+		}
+		button
+		{
+			cursor: pointer;
+		}
+		img
+		{
+			height: 200px;
+			width: 250px;
+		}
+		@media (max-width: 909px){
+			#button-group button{
+				margin: 10px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<section>
+		<div>
+			<h2 style="color: #105724; margin-top: 20px; font-family: cursive; font-size: 30px;">Manu Filter</h2>
+		</div>
+		<div id="button-group">
+			<button id="all">All</button>
+			<button id="brackfast">Brackfast</button>
+			<button id="lunch">Lunch</button>
+			<button id="dinner">Dinner</button>
+		</div>
+		<div id="menu-body">
+		</div>
+	</section>
+</body>
+<script type="text/javascript">
+	var menuItem = [
+	{
+		id: 1,
+		type: 'brackfast',
+		pic: 'https://media-cldnry.s-nbcnews.com/image/upload/newscms/2019_05/2736521/190131-stock-taco-bar-food-ew-1220p-2736521.jpg' ,
+		name: 'Black jouce' ,
+		price: '400$',
+	},
+	{
+		id: 1,
+		type: 'lunch',
+		pic:'https://media-cldnry.s-nbcnews.com/image/upload/newscms/2019_05/2736521/190131-stock-taco-bar-food-ew-1220p-2736521.jpg' ,
+		name: 'Coffee',
+		price: '150$' ,
+	},
+	{
+		id: 1,
+		type: 'dinner',
+		pic:'https://media-cldnry.s-nbcnews.com/image/upload/newscms/2019_05/2736521/190131-stock-taco-bar-food-ew-1220p-2736521.jpg' ,
+		name: 'Noodles',
+		price: '230$'
+	},
+	{
+		id: 1,
+		type: 'brackfast',
+		pic:'https://media-cldnry.s-nbcnews.com/image/upload/newscms/2019_05/2736521/190131-stock-taco-bar-food-ew-1220p-2736521.jpg' ,
+		name: 'Sweets',
+		price:'200$' ,
+	}];
+	var menu_body = document.getElementById('menu-body');
+	var all = document.getElementById('all');
+	var brackfast = document.getElementById('brackfast');
+	var lunch = document.getElementById('lunch');
+	var dinner = document.getElementById('dinner');
+	window.addEventListener('load', function () {
+		menu_body.innerHTML ='';
+		for (var i = 0; i < menuItem.length; i++) {
+
+			showUp(menuItem[i].pic,menuItem[i].name,menuItem[i].price);
+		}
+	});
+	all.addEventListener('click', function () {
+		menu_body.innerHTML ='';
+		for (var i = 0; i < menuItem.length; i++) {
+
+			showUp(menuItem[i].pic,menuItem[i].name,menuItem[i].price);
+		}
+	});
+	brackfast.addEventListener('click', function () {
+		menu_body.innerHTML ='';
+		for (var i = 0; i < menuItem.length; i++) {
+			if (menuItem[i].type == 'brackfast') {
+				showUp(menuItem[i].pic,menuItem[i].name,menuItem[i].price);
+			}
+		}
+	} );
+	lunch.addEventListener('click', function () {
+		menu_body.innerHTML ='';
+		for (var i = 0; i < menuItem.length; i++) {
+			if (menuItem[i].type == 'lunch') {
+				showUp(menuItem[i].pic,menuItem[i].name,menuItem[i].price);
+			}
+		}
+	} );
+	dinner.addEventListener('click', function () {
+		menu_body.innerHTML ='';
+		for (var i = 0; i < menuItem.length; i++) {
+			if (menuItem[i].type == 'dinner') {
+				showUp(menuItem[i].pic,menuItem[i].name,menuItem[i].price);
+			}
+		}
+	} );
+	function showUp(img,name,price) {
+		menu_body.innerHTML += `
+			<div id="menu-card">
+				<div id="img">
+					<img src="${img}">
+				</div>
+				<div id="text">
+					<div id="text-edit">
+						<h4>${name}</h4>
+						<h5>Price : ${price}</h5>
+						<button>Order</button>
+					</div>
+				</div>
+			</div>`;
+	}
+</script>
+</html>

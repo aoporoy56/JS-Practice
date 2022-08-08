@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tab</title>
+	<style type="text/css">
+		*
+		{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		body
+		{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			background-color: #e8e8e8;
+			color: white;
+		}
+		section
+		{
+			width: 400px;
+			background-color: #fff;
+			color: #b19288;
+			border-radius: 20px;
+
+		}
+		h3
+		{
+			text-align: center;
+			margin: 10px;
+			font-size: 40px;
+			font-family: "Arial Black", Gadget, sans-serif;
+		}
+		#about
+		{
+			background-color: #ffffff;
+			border-radius: 20px;
+		}
+		#menu
+		{
+			display: flex;
+			transform: translateY(-4px);
+		}
+		#menu div
+		{
+			width: 160px;
+			text-align: center;
+			font-size: 23px;
+			line-height: 40px;
+			background-color: #b1b1b1;
+			color: #7b2609;
+		}
+		#pera
+		{
+			padding: 20px;
+			text-align: justify;
+			height: 220px;
+		}
+		p
+		{
+			font-family: "Trebuchet MS", Helvetica, sans-serif;
+
+		}
+
+	</style>
+</head>
+<body>
+	<section>
+		<h3>Blog</h3>
+		<div>
+			<img src="https://wallpapercave.com/wp/wp4527131.jpg" width="100%;">
+		</div>
+		<div id="about">
+			<div id="menu">
+				<div id="deteils">Deteils</div>
+				<div id="plan">Plan</div>
+				<div id="contact">Contact</div>
+			</div>
+			<div id="pera">
+				<p>
+					
+				</p>
+			</div>
+		</div>
+	</section>
+</body>
+<script type="text/javascript">
+	var peraList = [
+	{
+		name:'deteils',
+		pera:'In depicts because shame as representing as some lot. Story formula tragic been his her without live point can demise phenomenal far could portrays by vivid untimely ever our, God. Live flaws faces given untimely thus time portrayal such in presents shown an problem has prowess. Doom due to prophecy demise, good ergo religious far lot. Ever nobody yet inevitable portrays defined doom specifically depicts vivid tragic ergo her formula as manifest flaws to.'
+	},
+	{
+		name:'plan',
+		pera:'Doom to certainly severe death demise heroic, by time ever formula new far live ergo demise, ergo thus for. Hero vivid ergo has point once good, fact untimely could ever, an given hence fact new prophecy time. Prowess once live whereas, case represents her vivid problem heroic good, some representing specifically ever shame flaws to. Been defined anyone new ergo could humanity time time presents? Her moreover day represents defined lot traits invoke such invoke.'
+	},
+	{
+		name:'contact',
+		pera:' New his untimely in formula personal manifestation ever his portrayal as specifically for point flaws. Could certainly as some doom presents portrays faces defined new, life shame could given represents depict as been tragic presents portrayal. As life heroic manifestation without story shown copy whereas defined presents been next live good God so untimely tragic humanity to. Moreover good has invoke once to good instill time life defined an our?'
+	}
+	];
+	deteils = document.querySelector('#deteils');
+	plan = document.querySelector('#plan');
+	contact = document.querySelector('#contact');
+	p = document.querySelector('p');
+	deteils.style.backgroundColor = 'transparent';
+	for (var i = 0; i < peraList.length; i++) {
+			if (peraList[i].name == 'deteils') {
+				p.textContent = peraList[i].pera;
+			}
+		}
+	deteils.nextElementSibling.style.borderRadius = '0px 0px 0px 10px';
+		console.log();
+	deteils.addEventListener('click', function () {
+		deteils.style.backgroundColor = 'transparent';
+		plan.style.backgroundColor = ' #b1b1b1';
+		contact.style.backgroundColor = ' #b1b1b1';
+		deteils.nextElementSibling.style.borderRadius = '0px 0px 0px 10px';
+		deteils.nextElementSibling.nextElementSibling.style.borderRadius = '0px';
+		// deteils.nextSibling().style.borderRadius = ';' ;
+		for (var i = 0; i < peraList.length; i++) {
+			if (peraList[i].name == 'deteils') {
+				p.textContent = peraList[i].pera;
+			}
+		}
+	})
+	plan.addEventListener('click', function () {
+		deteils.style.backgroundColor = '#b1b1b1';
+		plan.style.backgroundColor = ' transparent';
+		contact.style.backgroundColor = ' #b1b1b1';
+		plan.nextElementSibling.style.borderRadius = '0px 0px 0px 10px';
+		plan.style.borderRadius = '10px';
+		plan.previousElementSibling.style.borderRadius = '0px 0px 10px 0px';
+		for (var i = 0; i < peraList.length; i++) {
+			if (peraList[i].name == 'plan') {
+				p.textContent = peraList[i].pera;
+			}
+		}
+	})
+	contact.addEventListener('click', function () {
+		deteils.style.backgroundColor = '#b1b1b1';
+		plan.style.backgroundColor = ' #b1b1b1';
+		contact.style.backgroundColor = ' transparent';
+
+		contact.previousElementSibling.style.borderRadius = '0px 0px 10px 0px';
+		contact.previousElementSibling.previousElementSibling.style.borderRadius = '0px';
+		for (var i = 0; i < peraList.length; i++) {
+			if (peraList[i].name == 'contact') {
+				p.textContent = peraList[i].pera;
+			}
+		}
+	})
+</script>
+</html>

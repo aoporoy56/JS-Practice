@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Peragraph Generator</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+	<style type="text/css">
+		body
+		{
+			background-color: #e4e4e4;
+		}
+		.container
+		{
+			border-radius: 0px 0px 30px 30px;
+		}
+		p
+		{
+			text-align: justify;
+		}
+		label
+		{
+			font-family: sans-serif;
+			font-size: 20px;
+			text-shadow: currentColor;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container p-4" style="background-color: #e6f6f9">
+		<div class="row">
+			<div class="col-lg-12">
+				
+				<div class="form-group text-center">
+					<label>Enter Pera No</label>
+					<input type="number" name="" class="form-control w-25 mx-auto">
+					<button class="btn  mt-3" style="background-color: #747775">Search</button>
+				</div>
+			</div>
+			<div class="col-lg-12" id="p" style="text-align: center; color: #5a5757">
+				<h3>Click On Submit Button</h3>
+			</div>
+		</div>
+	</div>
+</body>
+	<script type="text/javascript">
+		// const paraList = ['asdf','wjerkl;sdaf','wqeiropfjds','werqwer','asdfoqwer','qwetijsd','qwoiejfdsk']
+		const paraList = ['Represents shocking due to, nobody vivid, due to depicts because embodies tragic to prowess heroic moreover! Shocking portrayal presents time yet anyone portrays, life prophecy presents heroic whereas instill portrays represents case? Shocking untimely live some presents hence time her, point. Flaws story presents represents day anyone whereas such manifestation story because. Personal, inevitable prophecy unknowingly death because represents unknowingly, thus anyone thus. Live demise personal certainly invoke day copy manifest death flaws tragic by inevitable anyone inevitable. By story live because thus can, our because lot inevitable because ever representing God demise hence hero given. Ergo shocking, her due to faces such invoke, portrayal God specifically faces ergo in portrayal embodies for, problem demise inevitable case. Given so prowess ergo ergo has could tragic because point whereas. Representing representing ergo embodies good embodies depict tragic in.','Point instill new lot case could new, doom moreover hence heroic live tragic. Can such because represents presents manifestation her such live an nobody in phenomenal. Lot shocking, anyone can representing defined yet tragic live, traits time far for phenomenal death good. As given represents his new has by lot thus, given day shame instill our shocking. Instill far his as her tragic humanity shocking, tragic demise shocking thus moreover far hero such been been. Phenomenal, defined without tragic anyone tragic shocking due to ergo. Some formula so nobody so manifestation shame, as because fact given manifest her been. Lot next defined could been heroic embodies portrays problem live portrayal for moreover given depicts could specifically shown. An copy, representing can so, nobody thus, tragic so for yet, presents prophecy formula vivid doom. Manifest, embodies far prophecy lot hero tragic vivid by in inevitable as without death unknowingly. Good so tragic God story hence, copy ergo shown because demise phenomenal shame tragic whereas thus without vivid far, once.','Tragic formula lot inevitable whereas defined could given traits in some has tragic shown? By his by shown, such life portrayal inevitable by humanity defined. Point hence representing live demise inevitable manifestation traits, tragic yet severe hence traits untimely, ever heroic shown severe. Represents anyone depicts moreover whereas defined been far heroic to vivid represents defined for representing. Formula, in God, instill problem her specifically, given phenomenal. Far formula in demise severe severe his ergo embodies as been unknowingly, far depicts problem case his problem portrays. His, such death, shocking, to depict ergo specifically story due to because death religious untimely tragic. Our, defined representing been flaws embodies without an as so. Portrayal has a her defined certainly case nobody, day, nobody heroic ergo due to presents. Formula portrays, because invoke shown fact because far portrayal certainly depicts copy instill. Thus manifestation flaws copy life next nobody formula story as day faces as.','Doom to certainly severe death demise heroic, by time ever formula new far live ergo demise, ergo thus for. Hero vivid ergo has point once good, fact untimely could ever, an given hence fact new prophecy time. Prowess once live whereas, case represents her vivid problem heroic good, some representing specifically ever shame flaws to. Been defined anyone new ergo could humanity time time presents? Her moreover day represents defined lot traits invoke such invoke. New his untimely in formula personal manifestation ever his portrayal as specifically for point flaws. Could certainly as some doom presents portrays faces defined new, life shame could given represents depict as been tragic presents portrayal. As life heroic manifestation without story shown copy whereas defined presents been next live good God so untimely tragic humanity to. Moreover good has invoke once to good instill time life defined an our?','In depicts because shame as representing as some lot. Story formula tragic been his her without live point can demise phenomenal far could portrays by vivid untimely ever our, God. Live flaws faces given untimely thus time portrayal such in presents shown an problem has prowess. Doom due to prophecy demise, good ergo religious far lot. Ever nobody yet inevitable portrays defined doom specifically depicts vivid tragic ergo her formula as manifest flaws to.','Cake or pie? I can tell a lot about you by which one you pick. It may seem silly, but cake people and pie people are really different. I know which one I hope you are, but that is not for me to decide. So, what is it? Cake or pie?', 'The rain and wind abruptly stopped, but the sky still had the gray swirls of storms in the distance. Dave knew this feeling all too well. The calm before the storm. He only had a limited amount of time before all Hell broke loose, but he stopped to admire the calmness. Maybe it would be different this time, he thought, with the knowledge deep within that it wouldn'];
+		const btn = document.querySelector('.btn');
+		const p = document.querySelector('#p');
+		
+		btn.addEventListener('click', function () {
+			p.textContent = '';
+			const getValue = document.querySelector('input').value;
+			if (getValue === '' || getValue > paraList.length ) {
+				for (var i = 0; i < 1; i++) {
+				var paraIndex = Math.floor(Math.random()* paraList.length);
+				const pTag= document.createElement('p');
+				pTag.innerText = paraList[paraIndex];
+				p.append(pTag);
+			}}
+			else
+			{
+				for (var i = 0; i < getValue; i++) {
+				var paraIndex = Math.floor(Math.random()* paraList.length);
+				const pTag= document.createElement('p');
+				pTag.innerText = paraList[paraIndex];
+				p.append(pTag);}
+
+			}
+
+		})
+	</script>
+</html>

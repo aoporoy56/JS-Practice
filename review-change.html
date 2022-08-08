@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Change by Slide</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<style type="text/css">
+		*
+		{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		body
+		{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #efefef;
+			color: white;
+			height: 100vh;
+			color: black;
+		}
+		#card 
+		{
+			height: 500px;
+			width: 400px;
+			padding: 20px;
+			box-shadow: 20px 16px 40px 0px #484848;
+			text-align: center;
+			background-color:  #cacaca;
+			position: relative;
+			border-radius: 30px;
+		}
+		#name
+		{
+			font-family: "Gill Sans", sans-serif;
+			font-size: 25px;
+		}
+		#title
+		{
+			font-family: cursive;
+			margin: 10px;
+			text-underline-position: under;
+		}
+		#discription
+		{
+			font-family: system-ui;
+			text-align: justify;
+			margin-top: 20px;
+			color: #655555;
+			height: 200px;
+			overflow: hidden;
+		}
+		img
+		{
+			border-radius: 50%;
+			height: 100px;
+		}
+		.fas
+		{
+			margin: 30px;
+			font-size: 30px;
+			cursor: pointer;
+		}
+		i
+		{
+			padding: 10px;
+			color: #736868;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #;
+		}
+	</style>
+</head>
+<body>
+	<div id="card">
+		<span style="position: absolute;top: 0;left: 0;"></span>
+		<img src="https://png.pngitem.com/pimgs/s/627-6275754_chad-profile-pic-profile-photo-circle-png-transparent.png">
+		<p id="name">Aopo Roy</p>
+		<p id="title">"web designer"</p>
+		<p id="discription">The rain and wind abruptly stopped, but the sky still had the gray swirls of storms in the distance. Dave knew this feeling all too well. The calm before the storm. He only had a limited amount of time before all Hell broke loose, but he stopped to admire the calmness. Maybe it would be different this time, he thought, with the knowledge deep within that it wouldn</p>
+		<div><i class="fas fa-angle-left" id="left"></i>
+<i class="fas fa-angle-right" id="right"></i></div>
+	</div>
+</body>
+<script type="text/javascript">
+	var cardInfo = [
+	{
+		id:1,
+		pic:'https://www.pngitem.com/pimgs/m/404-4042710_circle-profile-picture-png-transparent-png.png',
+		name:'Sobuj Hasan',
+		title:'Android Developer',
+		discription:'Point instill new lot case could new, doom moreover hence heroic live tragic. Can such because represents presents manifestation her such live an nobody in phenomenal. Lot shocking, anyone can representing defined yet tragic live, traits time far for phenomenal death good. As given represents his new has by lot thus, given day shame instill our shocking.'
+	},
+	{
+		id:2,
+		pic:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHsiHCKYJayWq_kDj5__9eqrpe4kqcYPd8AeykdaHnjNtaQK1hUZc-SOUYSMCSQnk0M9Y&usqp=CAU',
+		name:'Subilar Ethis',
+		title:'Playback Singer',
+		discription:'In depicts because shame as representing as some lot. Story formula tragic been his her without live point can demise phenomenal far could portrays by vivid untimely ever our, God. Live flaws faces given untimely thus time portrayal such in presents shown an problem has prowess. Doom due to prophecy demise, good ergo religious far lot. Ever nobody yet inevitable portrays defined doom specifically depicts vivid tragic ergo her formula as manifest flaws to.'
+	},
+	{
+		id:3,
+		pic:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpRfpo86SB6nHTlhI0FZFHPbdDb-y_QKJuvx6ugVdIEn1chvgrONhKsaG_spVs9sxjv84&usqp=CAU',
+		name:'Abid Helis',
+		title:'Subsystem Manager',
+		discription:'Represents shocking due to, nobody vivid, due to depicts because embodies tragic to prowess heroic moreover! Shocking portrayal presents time yet anyone portrays, life prophecy presents heroic whereas instill portrays represents case? Shocking untimely live some presents hence time her, point. Flaws story presents represents day anyone whereas such manifestation story because. '
+	},
+	{
+		id:4,
+		pic:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTcUnv77tNZ4m9l8OvOwnDLheOSWMsrayF4rhvApkyoOF2SI9m3kAoDrx1rDCz9DAH1Lg&usqp=CAU',
+		name:'Suril Hisl',
+		title:'Programmer',
+		discription:'In depicts because shame as representing as some lot. Story formula tragic been his her without live point can demise phenomenal far could portrays by vivid untimely ever our, God. Live flaws faces given untimely thus time portrayal such in presents shown an problem has prowess. Doom due to prophecy demise, good ergo religious far lot. Ever nobody yet inevitable portrays defined doom specifically depicts vivid tragic ergo her formula as manifest flaws to.'
+	}
+	];
+	var img = document.querySelector('img');
+	var name1 = document.querySelector('#name');
+	var title = document.querySelector('#title');
+	var discription = document.querySelector('#discription');
+	var rightBtn = document.querySelector('#right');
+	var leftBtn = document.querySelector('#left');
+	var span = document.querySelector('span');
+	var defaultIndex = 0;
+	window.addEventListener('load', () => {
+ 	setValue(defaultIndex);
+	});
+	rightBtn.addEventListener('click', function () {
+		defaultIndex++;
+		if (defaultIndex == cardInfo.length) {
+			defaultIndex=0;
+			setValue(defaultIndex);
+			console.log(defaultIndex);
+		}
+		setValue(defaultIndex);
+		
+	});
+	leftBtn.addEventListener('click', function () {
+		defaultIndex--;
+		if (defaultIndex < 0 ) {
+			defaultIndex = cardInfo.length-1;			
+		}
+		setValue(defaultIndex);
+	});
+	function setValue(getIndex) {
+		img.src = cardInfo[getIndex].pic;
+		name1.textContent=cardInfo[getIndex].name;
+	 	title.textContent = cardInfo[getIndex].title;
+	 	discription.textContent = cardInfo[getIndex].discription;
+	 	span.innerText = cardInfo[getIndex].id;
+	 }
+
+</script>
+</html>

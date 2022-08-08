@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Navbar</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<style type="text/css">
+		*
+		{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			
+		}
+		nav
+		{
+			width: 100%;
+			height: 80px;
+			background-color: #9a9a9a;
+			display: flex;
+			justify-content: space-between;
+			color: white;
+		}
+		h3
+		{
+			font-size: 40px;
+			line-height: 80px;
+			padding: 0 100px;
+			letter-spacing: 3px;
+		}
+		ul 
+		{
+			list-style: none;
+			display: flex;
+			padding: 0px 100px;
+			height: 100%;
+			align-items: center;
+		}
+		li
+		{
+			font-size: 21px;
+			line-height: 40px;
+			width: 100px;
+			text-align: center;
+			margin: 8px;
+
+		}
+		li.active, li:hover
+		{
+			border: 1px solid white;transition: .5s;
+		}
+		#button
+		{
+			display: none;
+		}
+		@media (max-width: 990px){
+			#button
+			{
+				display: block;
+				font-size: 30px;
+				line-height: 80px;
+				padding-right: 60px;
+			}
+			ul
+			{
+				position: absolute;
+				top:  80px;
+				background-color:  #77DD87;
+				display: block;
+				text-align: center;
+				height: 86%;
+				transform: translateX(-100%);
+				
+			}
+			.class
+			{
+				animation: example 1s  forwards;
+			}
+			@keyframes example
+			{
+				from
+				{
+					transform: translateX(-100%);
+				}
+				to
+				{
+					transform: translateX(0%);
+				}
+			}
+			.class2
+			{
+				animation: example_ 1s  forwards;
+			}
+			@keyframes example_
+			{
+				from
+				{
+					transform: translateX(0%);
+				}
+				to
+				{
+					transform: translateX(-100%);
+				}
+			}
+		}
+
+	</style>
+</head>
+<body>
+	<nav>
+		<label>
+			<h3>Hello</h3>
+		</label>
+		<ul class="" >
+			<li class="active">Home</li>
+			<li>Service</li>
+			<li>Blog</li>
+			<li>About</li>
+			<li>Contact</li>
+		</ul>
+		<label id="button">
+			<i class="fas fa-bars"></i>
+		</label>
+	</nav>
+</body>
+<script type="text/javascript">
+	var button = document.querySelector('#button');
+	ul = document.querySelector('ul');
+	i = document.querySelector('i');
+	button.addEventListener('click', function () {
+		if (ul.getAttribute('class') == '' || ul.getAttribute('class') == 'class2') {
+			ul.classList.remove('class2');
+			ul.classList.add('class');
+			i.style.transform = 'rotate(90deg)';
+		}
+		else
+		{
+			ul.classList.remove('class');
+			ul.classList.add('class2');
+			i.style.transform = 'rotate(180deg)';
+		}
+		
+	})
+</script>
+</html>
